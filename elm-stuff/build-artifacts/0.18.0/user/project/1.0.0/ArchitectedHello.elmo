@@ -1,0 +1,119 @@
+var _user$project$ArchitectedHello$sizeChecker = function (size) {
+	return (_elm_lang$core$Native_Utils.cmp(size, 1) < 1) ? size : (size - 1);
+};
+var _user$project$ArchitectedHello$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		switch (_p0.ctor) {
+			case 'Text':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						text: A2(_elm_lang$core$Basics_ops['++'], model.text, '!')
+					});
+			case 'SizeUp':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						size: _user$project$ArchitectedHello$sizeChecker(model.size) + 1
+					});
+			default:
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						size: _user$project$ArchitectedHello$sizeChecker(model.size)
+					});
+		}
+	});
+var _user$project$ArchitectedHello$model = {text: 'hello world', size: 10};
+var _user$project$ArchitectedHello$Model = F2(
+	function (a, b) {
+		return {text: a, size: b};
+	});
+var _user$project$ArchitectedHello$SizeDown = {ctor: 'SizeDown'};
+var _user$project$ArchitectedHello$SizeUp = {ctor: 'SizeUp'};
+var _user$project$ArchitectedHello$Text = {ctor: 'Text'};
+var _user$project$ArchitectedHello$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$style(
+						{
+							ctor: '::',
+							_0: {
+								ctor: '_Tuple2',
+								_0: 'fontSize',
+								_1: A2(
+									_elm_lang$core$Basics_ops['++'],
+									_elm_lang$core$Basics$toString(model.size),
+									'em')
+							},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'color', _1: 'teal'},
+								_1: {ctor: '[]'}
+							}
+						}),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(model.text),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$button,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Events$onClick(_user$project$ArchitectedHello$Text),
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('text is great'),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$button,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Events$onClick(_user$project$ArchitectedHello$SizeUp),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('+'),
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$button,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Events$onClick(_user$project$ArchitectedHello$SizeDown),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('-'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		});
+};
+var _user$project$ArchitectedHello$main = _elm_lang$html$Html$beginnerProgram(
+	{model: _user$project$ArchitectedHello$model, view: _user$project$ArchitectedHello$view, update: _user$project$ArchitectedHello$update})();

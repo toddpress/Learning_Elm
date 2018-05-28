@@ -1,0 +1,52 @@
+var _user$project$Statuses$createLi = function (str) {
+	return A2(
+		_elm_lang$html$Html$li,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text(str),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Statuses$renderList = function (lst) {
+	return A2(
+		_elm_lang$html$Html$ul,
+		{ctor: '[]'},
+		A2(_elm_lang$core$List$map, _user$project$Statuses$createLi, lst));
+};
+var _user$project$Statuses$checkStatus = function (status) {
+	return _elm_lang$core$Native_Utils.eq(status, 200) ? 'Sweet, way to go dude' : (_elm_lang$core$Native_Utils.eq(status, 404) ? 'Wait, what the wtf?' : 'Unknown issue');
+};
+var _user$project$Statuses$statusChecks = {
+	ctor: '::',
+	_0: _user$project$Statuses$checkStatus(200),
+	_1: {
+		ctor: '::',
+		_0: _user$project$Statuses$checkStatus(404),
+		_1: {
+			ctor: '::',
+			_0: _user$project$Statuses$checkStatus(418),
+			_1: {ctor: '[]'}
+		}
+	}
+};
+var _user$project$Statuses$main = _elm_lang$virtual_dom$Native_VirtualDom.staticProgram(
+	A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('List of Statuses:'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: _user$project$Statuses$renderList(_user$project$Statuses$statusChecks),
+				_1: {ctor: '[]'}
+			}
+		}));
