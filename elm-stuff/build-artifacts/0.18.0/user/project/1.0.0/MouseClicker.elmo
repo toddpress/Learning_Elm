@@ -1,0 +1,49 @@
+var _user$project$MouseClicker$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text(
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					'Position X is ',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(model.x),
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							' Position Y is ',
+							_elm_lang$core$Basics$toString(model.y))))),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$MouseClicker$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		var _p1 = _p0._0;
+		return {
+			ctor: '_Tuple2',
+			_0: _elm_lang$core$Native_Utils.update(
+				model,
+				{x: _p1.x, y: _p1.y}),
+			_1: _elm_lang$core$Platform_Cmd$none
+		};
+	});
+var _user$project$MouseClicker$Model = F2(
+	function (a, b) {
+		return {x: a, y: b};
+	});
+var _user$project$MouseClicker$init = {
+	ctor: '_Tuple2',
+	_0: A2(_user$project$MouseClicker$Model, 0, 0),
+	_1: _elm_lang$core$Platform_Cmd$none
+};
+var _user$project$MouseClicker$MouseMsg = function (a) {
+	return {ctor: 'MouseMsg', _0: a};
+};
+var _user$project$MouseClicker$subscriptions = function (model) {
+	return _elm_lang$mouse$Mouse$clicks(_user$project$MouseClicker$MouseMsg);
+};
+var _user$project$MouseClicker$main = _elm_lang$html$Html$program(
+	{init: _user$project$MouseClicker$init, view: _user$project$MouseClicker$view, update: _user$project$MouseClicker$update, subscriptions: _user$project$MouseClicker$subscriptions})();

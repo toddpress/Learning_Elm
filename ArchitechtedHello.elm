@@ -64,3 +64,10 @@ view model =
         , button [ onClick SizeUp ] [ text "+" ]
         , button [ onClick SizeDown ] [ text "-" ]
         ]
+
+generateResult : Model -> Html msg
+generateResult { size } = 
+    let 
+        color =
+            if size < 10 then
+                 
